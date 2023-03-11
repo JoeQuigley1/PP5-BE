@@ -13,7 +13,7 @@ class PollSerializer(serializers.ModelSerializer):
 
 
 class ChoiceSerializer(serializers.ModelSerializer):
-    choice_text = serializers.CharField(max_length=200)
+    question = PollSerializer
 
     class Meta:
         model = Choice
