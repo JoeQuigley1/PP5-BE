@@ -13,6 +13,11 @@ class Poll(models.Model):
     def __str__(self):
         return self.poll_text
 
+    def choices(self):
+        if not hasattr(self, '_choices'):
+            self._choices = self.choice_set.all()
+        return self._choices
+
 
 class Choice(models.Model):
     question = models.ForeignKey(Poll, on_delete=models.CASCADE)
