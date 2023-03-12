@@ -3,5 +3,6 @@ from polls import views
 
 urlpatterns = [
     path('polls/', views.PollListView.as_view()),
+    path('polls/choice/', views.ChoiceView.as_view()),
     path('polls/<int:pk>/', views.PollDetail.as_view()),
 ]

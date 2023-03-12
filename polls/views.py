@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics
 from drf_api.permissions import IsOwnerOrReadOnly
-from .models import Poll
-from .serializers import PollSerializer
+from .models import Poll, Choice
+from .serializers import PollSerializer, ChoiceSerializer
 
 
 class PollListView(generics.ListCreateAPIView):
@@ -12,6 +12,11 @@ class PollListView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class ChoiceView(generics.ListCreateAPIView):
+    serializer_class = ChoiceSerializer
+    queryset = Choice.objects.all()
 
 
 class PollDetail(generics.RetrieveDestroyAPIView):
