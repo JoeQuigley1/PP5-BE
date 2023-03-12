@@ -66,7 +66,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', ]
+ALLOWED_HOSTS = ['localhost',  'beer-blog.herokuapp.com']
 
 
 # Application definition
