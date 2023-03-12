@@ -14,7 +14,7 @@ class PollListView(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class PollDetail(generics.RetrieveUpdateDestroyAPIView):
+class PollDetail(generics.RetrieveDestroyAPIView):
 
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = PollSerializer
