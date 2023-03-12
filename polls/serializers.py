@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.db import models
 from polls.models import Poll, Choice
 
 
@@ -12,8 +13,15 @@ class PollSerializer(serializers.ModelSerializer):
         ]
 
 
+class PollChoiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Choice
+        fields = [
+            'id', 'choice_text'
+        ]
+
+
 class ChoiceSerializer(serializers.ModelSerializer):
-    question = PollSerializer
 
     class Meta:
         model = Choice
